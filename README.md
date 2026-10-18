@@ -4,7 +4,7 @@ Small mods for Claude Code. Add the marketplace once, then install any of them.
 
 | Mod | What it does |
 | --- | --- |
-| [done-sound](plugins/done-sound) | Plays a chime when a long turn finishes, so you can look away while Claude works. |
+| [done-sound](plugins/done-sound) | Plays a chime when a long turn finishes, so you can look away while Claude works. macOS, plus Linux and Windows (untested). |
 | [session-notes](plugins/session-notes) | A side pane listing the files touched, commands run and agents started this session. |
 
 ## Install
