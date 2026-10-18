@@ -1,0 +1,6 @@
+{
+  "name": "done-sound",
+  "version": "0.1.0",
+  "description": "Plays a sound when a long turn finishes.",
+  "author": { "name": "pongsixtyfour" }
+}
