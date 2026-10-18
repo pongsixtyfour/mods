@@ -14,9 +14,21 @@ The clip is a short three-note chime (`sounds/done.wav`, generated for this mod)
 
 ## Install
 
+At the prompt of a Claude Code terminal session:
+
 ```
 /plugin install done-sound --marketplace pongsixtyfour/done-sound
 ```
+
+Answer `y` to add the marketplace, then pick a scope.
+
+From a shell:
+
+```
+claude plugin install done-sound --marketplace pongsixtyfour/done-sound
+```
+
+In the desktop app, where `/plugin` does not run: click + next to the prompt box, then Plugins, Add marketplace with `pongsixtyfour/done-sound`, then Add plugin.
 
 ## Configure
 
