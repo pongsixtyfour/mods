@@ -1,5 +1,9 @@
 {
   "name": "pongsixtyfour-mods",
+  "description": "Small mods for Claude Code: a done sound and a session notes pane.",
   "owner": { "name": "pongsixtyfour" },
-  "plugins": [{ "name": "done-sound", "source": "./" }]
+  "plugins": [
+    { "name": "done-sound", "source": "./plugins/done-sound" },
+    { "name": "session-notes", "source": "./plugins/session-notes" }
+  ]
 }

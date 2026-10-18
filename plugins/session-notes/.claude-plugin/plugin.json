@@ -1,0 +1,7 @@
+{
+  "name": "session-notes",
+  "version": "0.1.0",
+  "description": "A side pane listing the files touched, commands run and agents started this session.",
+  "author": { "name": "pongsixtyfour" },
+  "types": "./types/index.d.ts"
+}
