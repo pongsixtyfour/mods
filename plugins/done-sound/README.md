@@ -10,13 +10,13 @@ It plays after a turn only when all of these hold:
 - it is the main session's turn, not a subagent's
 - you did not interrupt it
 
-The clip is a short three-note chime (`sounds/done.wav`, generated for this mod).
+The clip is a short chime (`sounds/done.wav`, from the Cozy SFX pack).
 
 ## Platforms
 
 | System | Player | Status |
 | --- | --- | --- |
-| macOS | the engine's own (`afplay`), at gain 3 | tested |
+| macOS | the engine's own (`afplay`), at the configured gain (default 3) | tested |
 | Linux | the first that works of `paplay`, `aplay`, `ffplay` | not tested on a real machine |
 | Windows | `powershell.exe` with `Media.SoundPlayer` | not tested on a real machine |
 
@@ -44,10 +44,9 @@ In the desktop app, where `/plugin` does not run: click + next to the prompt box
 
 ## Configure
 
-Edit the two constants at the top of `hooks/register.ts`:
+Volume is a plugin option. Change `gain` (0 to 4, default `3`, macOS only) in `/config`, or under `pluginConfigs` in `settings.json`.
 
-- `MIN_MS`: the shortest turn that earns a sound, in milliseconds (default `15_000`)
-- `GAIN`: linear volume from 0 to 4 (default `3`; macOS only)
+To change the shortest turn that earns a sound, edit `MIN_MS` at the top of `hooks/register.ts` (milliseconds, default `15_000`).
 
 To change the sound, replace `sounds/done.wav` with a `.wav` file (the Windows player only plays `.wav`) (keep the name, or update the path in `register.ts`).
 

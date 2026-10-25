@@ -1,6 +1,16 @@
 {
   "name": "done-sound",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Plays a sound when a long turn finishes.",
-  "author": { "name": "pongsixtyfour" }
+  "author": { "name": "pongsixtyfour" },
+  "userConfig": {
+    "gain": {
+      "type": "number",
+      "title": "Volume",
+      "description": "Playback gain (macOS only; ignored on Linux and Windows): 0 is silent, 1 is the clip as recorded.",
+      "default": 3,
+      "min": 0,
+      "max": 4
+    }
+  }
 }

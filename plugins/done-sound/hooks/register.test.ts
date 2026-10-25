@@ -22,6 +22,17 @@ describe('done-sound', () => {
     expect(clips[0]!.gain).toBe(3)
   })
 
+  test('uses the configured volume', { options: { gain: 2 } }, async ($, on) => {
+    const clips: { clip: unknown; gain?: number }[] = []
+    on('process.run', () => ({ value: { exitCode: 0, stdout: 'Darwin\n', stderr: '' } }) as any)
+    on('audio.play', (_$, e) => { clips.push(e); return { value: undefined } })
+    on('turn.complete', (_$, e) => ({ text: e.answer }))
+
+    await $.turn.complete(complete())
+
+    expect(clips[0]!.gain).toBe(2)
+  })
+
   test('stays silent after a short turn', async ($, on) => {
     const clips: unknown[] = []
     on('audio.play', (_$, e) => { clips.push(e); return { value: undefined } })

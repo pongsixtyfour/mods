@@ -1,7 +1,7 @@
 import type { Register } from 'claude-code'
 
 const MIN_MS = 15_000
-const GAIN = 3
+const DEFAULT_GAIN = 3
 const CLIP = 'sounds/done.wav'
 
 // Where the engine's own player (afplay) is missing, run one of these by argv, first that works.
@@ -34,10 +34,10 @@ async function tryRun($: any, argv: string[], env?: Record<string, string>): Pro
   return r?.exitCode === 0
 }
 
-async function chime($: any): Promise<void> {
+async function chime($: any, gain: number): Promise<void> {
   const where = await detect($)
   if (where === 'mac') {
-    await $.audio.play({ asset: CLIP }, { gain: GAIN })
+    await $.audio.play({ asset: CLIP }, { gain })
     return
   }
   const file = `${$.plugin.root}/${CLIP}`
@@ -50,12 +50,13 @@ async function chime($: any): Promise<void> {
   }
 }
 
-export const register: Register = on => {
+export const register: Register = (on, options) => {
+  const gain = typeof options.gain === 'number' ? options.gain : DEFAULT_GAIN
   on('turn.complete', async ($, e, next) => {
     const ran = await next(e)
     const isLong = e.durationMs >= MIN_MS
     if (e.agentId === undefined && e.reason !== 'aborted' && isLong) {
-      await chime($).catch(() => {})
+      await chime($, gain).catch(() => {})
     }
     return ran
   })
